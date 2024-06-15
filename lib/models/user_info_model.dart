@@ -3,7 +3,7 @@ class UserInfoModel {
   final String title;
   final String subTitle;
 
-  UserInfoModel({required this.image, required this.title, required this.subTitle});
+  const UserInfoModel({required this.image, required this.title, required this.subTitle});
 
  
 }

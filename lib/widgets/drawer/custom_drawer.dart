@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard_app/models/drawer_item_model.dart';
 import 'package:responsive_dashboard_app/models/user_info_model.dart';
 import 'package:responsive_dashboard_app/utils/app_images.dart';
-import 'package:responsive_dashboard_app/widgets/active_and_inactive_item.dart';
-import 'package:responsive_dashboard_app/widgets/drawer_items_list_view.dart';
+import 'package:responsive_dashboard_app/widgets/drawer/active_and_inactive_item.dart';
+import 'package:responsive_dashboard_app/widgets/drawer/drawer_items_list_view.dart';
 import 'package:responsive_dashboard_app/widgets/user_info_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -13,7 +13,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: CustomScrollView(
+      child: const CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: UserInfoListTile(
@@ -22,17 +22,17 @@ class CustomDrawer extends StatelessWidget {
                     title: 'Lekan Okeowo',
                     subTitle: 'demo@gmail.com')),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(
               height: 8,
             ),
           ),
 
-          const DrawerItemListView(),
+          DrawerItemListView(),
           // because we can't use expanded widget in single child scroll view
           // we use custom scroll view and use sliverFillRemainind
           // that allow to use expanded inside it
-          const SliverFillRemaining(
+          SliverFillRemaining(
             // use this to the parent (custom scroll view) has scroll body
             // so this widget will scroll with the parent
             hasScrollBody: false,

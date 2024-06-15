@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dashboard_app/utils/app_styles.dart';
-import 'package:responsive_dashboard_app/widgets/range_options.dart';
+import 'package:responsive_dashboard_app/widgets/expenses/range_options.dart';
 
 class AllExpensesHeader extends StatelessWidget {
   const AllExpensesHeader({super.key});
