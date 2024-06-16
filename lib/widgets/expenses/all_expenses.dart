@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_dashboard_app/widgets/expenses/all_expenses_header.dart';
+import 'package:responsive_dashboard_app/widgets/shared/all_expenses_and_incomeheader.dart';
 import 'package:responsive_dashboard_app/widgets/expenses/all_expenses_items_list_view.dart';
-import 'package:responsive_dashboard_app/widgets/custom_background_container.dart';
+import 'package:responsive_dashboard_app/widgets/shared/custom_background_container.dart';
 
 class AllExpenses extends StatelessWidget {
   const AllExpenses({super.key});
@@ -12,7 +12,7 @@ class AllExpenses extends StatelessWidget {
       padding: 20,
       child: Column(
         children: [
-          AllExpensesHeader(),
+          AllExpensesAndIncomeheader(title: 'All Expenses'),
           SizedBox(
             height: 16,
           ),
