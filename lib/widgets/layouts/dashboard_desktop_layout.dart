@@ -17,24 +17,46 @@ class DashboardDesktopLayout extends StatelessWidget {
         ),
         Expanded(
           flex: 3,
-          child: Padding(
-            padding: EdgeInsets.only(top: 40),
-            child: AllExpensesAndQuickInvoice(),
-          ),
-        ),
-        SizedBox(
-          width: 24,
-        ),
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [
-              SizedBox(height: 40,),
-              MyCardAndTransactionHistorySection(),
-              SizedBox(
-                height: 24,
-              ),
-              Expanded(child: Income()),
+          child: CustomScrollView(
+            slivers: [
+              // SliverFillRemaining take the screen height
+              // so if there is a widget inside it take height
+              // bigger than the screen height , the error will occur
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 40),
+                        child: AllExpensesAndQuickInvoice(),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    // here the problem
+                    Expanded(
+                      // this column take height bigger than the screen height
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 40,
+                          ),
+                          // take the enough height
+                          MyCardAndTransactionHistorySection(),
+                          SizedBox(
+                            height: 24,
+                          ),
+                          // take the rest
+                          Expanded(child: Income()),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

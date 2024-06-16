@@ -6,6 +6,8 @@ class SizeConfig {
 
   static late double width, height;
 
+
+  // not for desktop layout
   static init(BuildContext context) {
     height = MediaQuery.sizeOf(context).height;
     width = MediaQuery.sizeOf(context).width;
