@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard_app/models/drawer_item_model.dart';
 import 'package:responsive_dashboard_app/models/user_info_model.dart';
 import 'package:responsive_dashboard_app/utils/app_images.dart';
-import 'package:responsive_dashboard_app/utils/size_config.dart';
 import 'package:responsive_dashboard_app/widgets/drawer/active_and_inactive_item.dart';
 import 'package:responsive_dashboard_app/widgets/drawer/drawer_items_list_view.dart';
 import 'package:responsive_dashboard_app/widgets/shared/user_info_list_tile.dart';

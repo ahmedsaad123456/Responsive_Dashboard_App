@@ -21,13 +21,9 @@ class IncomeDetails extends StatelessWidget {
     return Column(
         children: items.asMap().entries.map(
       (e) {
-        int index = e.key;
         var value = e.value;
 
-        return Padding(
-          padding: EdgeInsets.only(bottom: index != 4 ? 12 : 0),
-          child: IncomeDetailsItem(incomeDetailsItemModel: value),
-        );
+        return IncomeDetailsItem(incomeDetailsItemModel: value);
       },
     ).toList());
   }

@@ -35,34 +35,59 @@ class _AllExpensesItemsListViewState extends State<AllExpensesItemsListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      // map to access the models only without the index
-      // children: items
-      //     .map((e) => Expanded(child: AllExpensesItem(allExpensesItemModel: e)))
-      //     .toList(),
-
-      // we use as map to get the index
-      children: items.asMap().entries.map((e) {
-        int index = e.key;
-        var item = e.value;
-        return Expanded(
+      children: [
+        Expanded(
           child: GestureDetector(
             onTap: () {
-              if (activeIndex != index) {
+              if (activeIndex != 0) {
                 setState(() {
-                  activeIndex = index;
+                  activeIndex = 0;
                 });
               }
             },
-            child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: index == 1 ? 12 : 0),
             child: AllExpensesItem(
-              allExpensesItemModel: item,
-              isSelected: activeIndex == index,
+              allExpensesItemModel: items[0],
+              isSelected: activeIndex == 0,
             ),
           ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              if (activeIndex != 1) {
+                setState(() {
+                  activeIndex = 1;
+                });
+              }
+            },
+            child: AllExpensesItem(
+              allExpensesItemModel: items[1],
+              isSelected: activeIndex == 1,
+            ),
           ),
-        );
-      }).toList(),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              if (activeIndex != 2) {
+                setState(() {
+                  activeIndex = 2;
+                });
+              }
+            },
+            child: AllExpensesItem(
+              allExpensesItemModel: items[2],
+              isSelected: activeIndex == 2,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

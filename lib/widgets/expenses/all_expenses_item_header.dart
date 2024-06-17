@@ -15,21 +15,32 @@ class AllExpensesItemHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-            width: 60,
-            height: 60,
-            // padding here because the svg picture
-            // will be bigger than the normal because
-            // the height and width of the container
-            padding: const EdgeInsets.all(14),
-            decoration: ShapeDecoration(
-                shape: const OvalBorder(),
-                color: imageBackgroundColor ?? const Color(0xFFFAFAFA)),
-            child: SvgPicture.asset(
-              image,
-              colorFilter: ColorFilter.mode(
-                  imageColor ?? const Color(0xFF4EB7F2), BlendMode.srcIn),
-            )),
+        Flexible(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: 60
+            ),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                  // padding here because the svg picture
+                  // will be bigger than the normal because
+                  // the height and width of the container
+                  // padding: const EdgeInsets.all(14),
+                  decoration: ShapeDecoration(
+                      shape: const OvalBorder(),
+                      color: imageBackgroundColor ?? const Color(0xFFFAFAFA)),
+                  // center insted of padding to solve the above problem
+                  child: Center(
+                    child: SvgPicture.asset(
+                      image,
+                      colorFilter: ColorFilter.mode(
+                          imageColor ?? const Color(0xFF4EB7F2), BlendMode.srcIn),
+                    ),
+                  )),
+            ),
+          ),
+        ),
         const Spacer(),
         Transform.rotate(
             angle: -1.50709633 * 2,
